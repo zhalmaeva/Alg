@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED PrintSupport)
+find_package(ElesyOpcUaClient REQUIRED)
 
 add_executable(GraphDecimator
     main.cpp
@@ -26,6 +27,9 @@ add_executable(GraphDecimator
     graph.h
     util.cpp
     util.h
+    browser.cpp
+    browser.h
 )
 
 target_link_libraries(GraphDecimator PRIVATE Qt5::Widgets Qt5::PrintSupport)
+target_link_libraries(GraphDecimator PRIVATE ElesyOpcUaClient::ElesyOpcUaClient)
